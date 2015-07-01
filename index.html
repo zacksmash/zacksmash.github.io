@@ -11,62 +11,6 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
-		<script>
-			$(function() {
-			    // Get the form.
-			    var form = $('#contactme');
-			
-			    // Get the messages div.
-			    var formMessages = $('#form-messages');
-			
-			    // Set up an event listener for the contact form.
-				$(form).submit(function(event) {
-				    // Stop the browser from submitting the form.
-				    event.preventDefault();
-				
-				    // Serialize the form data.
-					var formData = $(form).serialize();
-					
-					// Submit the form using AJAX.
-					$.ajax({
-					    type: 'POST',
-					    url: $(form).attr('action'),
-					    data: formData
-					})
-					
-					.done(function(response) {
-					    // Make sure that the formMessages div has the 'success' class.
-					    $(formMessages).removeClass('error hide');
-					    $(formMessages).addClass('success');
-					
-					    // Set the message text.
-					    $(formMessages).text(response);
-					
-					    // Clear the form.
-					    $('#name').val('');
-					    $('#email').val('');
-					    $('#subject').val('');
-					    $('#message').val('');
-					    
-					    $(formMessages).delay(2000).fadeOut();
-					})
-					
-					.fail(function(data) {
-					    // Make sure that the formMessages div has the 'error' class.
-					    $(formMessages).removeClass('success hide');
-					    $(formMessages).addClass('error');
-					
-					    // Set the message text.
-					    if (data.responseText !== '') {
-					        $(formMessages).text(data.responseText);
-					    } else {
-					        $(formMessages).text('Oops! An error occured and your message could not be sent.');
-					    }
-					});
-				});
-			});
-		</script>
-
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -84,7 +28,7 @@
 				<a href="#me" class="icon fa-home active"><span>Home</span></a>
 				<a href="#skills" class="icon fa-code"><span>Skills</span></a>
 				<a href="#work" class="icon fa-folder"><span>Work</span></a>
-				<a href="#contact" class="icon fa-envelope"><span>Contact</span></a>
+<!-- 				<a href="#contact" class="icon fa-envelope"><span>Contact</span></a> -->
 				<a href="http://github.com/zacksmash" class="icon fa-github" target="_blank"><span>GitHub</span></a>
 				<a href="http://teamtreehouse.com/zacksmash" target="_blank"><i class="fi-social-treehouse"></i><span>Treehouse</span></a>
 			</nav>
@@ -193,34 +137,8 @@
 				<article id="contact" class="panel">
 					<header>
 						<h2>Contact Me</h2>
+						<a href="mailto:zachary.warren@me.com">Email</a>
 					</header>
-					<form action="mail.php" method="post" id="contactme">
-						<div>
-							<div class="row">
-								<div class="6u">
-									<input type="text" name="name" placeholder="Name" id="name" />
-								</div>
-								<div class="6u">
-									<input type="text" name="email" placeholder="Email" id="email" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="12u">
-									<input type="text" name="subject" placeholder="Subject" id="subject" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="12u">
-									<textarea name="message" placeholder="Message" rows="8" id="message"></textarea>
-								</div>
-							</div>
-							<div class="row">
-								<div class="12u">
-									<input type="submit" value="Send Message" />
-								</div>
-							</div>
-						</div>
-					</form>
 					<div id="form-messages" class="hide"></div>
 				</article>
 			</div>
