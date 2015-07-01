@@ -1,1 +1,247 @@
-<h1>Hello World</h1>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Zack Warren | Portfolio</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="I'm Zack Warren, a frontend web devloper in North Ogden, UT. Check out my qualifications and some of my projects here, on my portolio!" />
+		<meta name="keywords" content="Web Design, Ogden, Utah, Northern Utah, Frontend, Developer, Web, Developer" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<link rel="icon" type="image/png" href="favicon.ico">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<script>
+			$(function() {
+			    // Get the form.
+			    var form = $('#contactme');
+			
+			    // Get the messages div.
+			    var formMessages = $('#form-messages');
+			
+			    // Set up an event listener for the contact form.
+				$(form).submit(function(event) {
+				    // Stop the browser from submitting the form.
+				    event.preventDefault();
+				
+				    // Serialize the form data.
+					var formData = $(form).serialize();
+					
+					// Submit the form using AJAX.
+					$.ajax({
+					    type: 'POST',
+					    url: $(form).attr('action'),
+					    data: formData
+					})
+					
+					.done(function(response) {
+					    // Make sure that the formMessages div has the 'success' class.
+					    $(formMessages).removeClass('error hide');
+					    $(formMessages).addClass('success');
+					
+					    // Set the message text.
+					    $(formMessages).text(response);
+					
+					    // Clear the form.
+					    $('#name').val('');
+					    $('#email').val('');
+					    $('#subject').val('');
+					    $('#message').val('');
+					    
+					    $(formMessages).delay(2000).fadeOut();
+					})
+					
+					.fail(function(data) {
+					    // Make sure that the formMessages div has the 'error' class.
+					    $(formMessages).removeClass('success hide');
+					    $(formMessages).addClass('error');
+					
+					    // Set the message text.
+					    if (data.responseText !== '') {
+					        $(formMessages).text(data.responseText);
+					    } else {
+					        $(formMessages).text('Oops! An error occured and your message could not be sent.');
+					    }
+					});
+				});
+			});
+		</script>
+
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="css/style-noscript.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+		<!-- Wrapper-->
+		<div id="wrapper">
+			
+			<!-- Nav -->
+			<nav id="nav">
+				<a href="#me" class="icon fa-home active"><span>Home</span></a>
+				<a href="#skills" class="icon fa-code"><span>Skills</span></a>
+				<a href="#work" class="icon fa-folder"><span>Work</span></a>
+				<a href="#contact" class="icon fa-envelope"><span>Contact</span></a>
+				<a href="http://github.com/zacksmash" class="icon fa-github" target="_blank"><span>GitHub</span></a>
+				<a href="http://teamtreehouse.com/zacksmash" target="_blank"><i class="fi-social-treehouse"></i><span>Treehouse</span></a>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				
+				<!-- Me -->
+				<article id="me" class="panel">
+					<header>
+						<h1>Zack Warren</h1>
+						<p>Frontend Web Developer in North Ogden, UT</p>
+					</header>
+					<a href="#skills" class="jumplink pic">
+						<span class="arrow icon fa-chevron-right"><span>See my skills</span></span>
+						<img src="images/me.jpg" alt="" />
+					</a>
+				</article>
+				
+				<!-- Skills -->
+				<article id="skills" class="panel">
+					<header>
+						<h1>Languages I Know</h1>
+						<p><i class="fa fa-circle green"></i>HTML 5</p>
+						<p><i class="fa fa-circle green"></i>CSS/Sass</p>
+						<p><i class="fa fa-circle green"></i>Javascript</p>
+						<p><i class="fa fa-circle yellow"></i>PHP</p>
+						<hr>
+						<h1>Frameworks I Use</h1>
+						<p><i class="fa fa-circle green"></i>Zurb Foundation</p>
+						<p><i class="fa fa-circle green"></i>Bootstrap</p>
+						<p><i class="fa fa-circle green"></i>jQuery</p>
+						<p><i class="fa fa-circle yellow"></i>Wordpress</p>
+						<p><i class="fa fa-circle yellow"></i>Anchor CMS</p>
+						<p><i class="fa fa-circle green"></i>Laravel</p>
+						<hr>
+						<h1>I'm also familiar with...</h1>
+						<p><i class="fa fa-circle green"></i>Responsive Design</p>
+						<p><i class="fa fa-circle green"></i>MVC Patterns</p>
+						<p><i class="fa fa-circle green"></i>GIT</p>
+						<p><i class="fa fa-circle green"></i>SVN</p>
+					</header>
+				</article>
+
+				<!-- Work --> 
+				<article id="work" class="panel">
+					<header>
+						<h2>Work</h2>
+					</header>
+					<p>
+						Here's a few of the latest projects I've worked on.
+					</p>
+					<section>
+						<div class="row">
+							<div class="4u">
+								<a href="http://allmoxy.com" class="image fit" target="_blank"><img src="images/allmoxy.png" alt="Allmoxy Software"></a>
+								<small>Allmoxy Software</small><hr>
+								<small>Application Development</small><br>
+								<small>Site Design</small><br>
+								<small>HTML/Sass/jQuery</small><br>
+								<small>Laravel</small>
+							</div>
+							<div class="4u">
+								<a href="http://thewoodmarketplace.com" class="image fit" target="_blank"><img src="images/twm.png" alt="The Wood Marketplace"></a>
+								<small>The Wood Marketplace</small><hr>
+								<small>Site Design</small><br>
+								<small>HTML/CSS/jQuery</small><br>
+								<small>PHP/Smarty</small>
+							</div>
+							<div class="4u">
+								<a href="http://lewiscabinet.com" class="image fit" target="_blank"><img src="images/lcs.png" alt="The Wood Marketplace"></a>
+								<small>Lewis Cabinet</small><hr>
+								<small>Site Design</small><br>
+								<small>HTML/CSS/jQuery</small><br>
+							</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<a href="http://forum.ennoapps.com" class="image fit" target="_blank"><img src="images/msgbrd.png" alt="Msg Brd Forum"></a>
+								<small>MsgBrd Forum</small><hr>
+								<small>Application Development</small><br>
+								<small>Site Design</small><br>
+								<small>HTML/CSS/jQuery</small><br>
+								<small>PHP</small>
+							</div>
+							<div class="4u">
+								<a href="http://camplins.ca" class="image fit" target="_blank"><img src="images/camplins.png" alt="Camplin's Custom Components"></a>
+								<small>Camplin's</small><hr>
+								<small>Site Design</small><br>
+								<small>HTML/Sass/jQuery</small><br>
+								<small>Wordpress</small>
+							</div>
+							<div class="4u">
+								<a href="http://bandfindr.ennoapps.com" class="image fit"><img src="images/bandfindr.png" alt="BandFindr (coming soon)" /></a>
+								<small>BandFindr (coming soon!)</small><hr>
+								<small>Application Development</small><br>
+								<small>Site Design</small><br>
+								<small>HTML/Sass/jQuery</small><br>
+								<small>Laravel</small>
+							</div>
+						</div>
+					</section>
+				</article>
+
+				<!-- Contact -->
+				<article id="contact" class="panel">
+					<header>
+						<h2>Contact Me</h2>
+					</header>
+					<form action="mail.php" method="post" id="contactme">
+						<div>
+							<div class="row">
+								<div class="6u">
+									<input type="text" name="name" placeholder="Name" id="name" />
+								</div>
+								<div class="6u">
+									<input type="text" name="email" placeholder="Email" id="email" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<input type="text" name="subject" placeholder="Subject" id="subject" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<textarea name="message" placeholder="Message" rows="8" id="message"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<input type="submit" value="Send Message" />
+								</div>
+							</div>
+						</div>
+					</form>
+					<div id="form-messages" class="hide"></div>
+				</article>
+			</div>
+
+			<!-- Footer -->
+			<div id="footer">
+				<ul class="copyright">
+					<li>&copy; Zack Warren | EnnoApps</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-61672516-1', 'auto');
+	  ga('send', 'pageview');
+	
+	</script>
+</html>

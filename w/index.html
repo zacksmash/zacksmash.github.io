@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Work Out Generator</title>
+		<link rel="icon" type="image/png" href="favicon.ico">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<script src="js/modernizr.js"></script>
+	</head>
+	<body>
+	
+		<section class="row" style="height: 100%; margin-top: 15px;">
+			<div class="large-12 medium-12 small-12 columns">
+				<div class="row collapse">
+					<div class="small-6 large-6 columns">
+						<span class="prefix radius">Sets</span>
+					</div>
+					<div class="small-6 large-6 columns">
+						<input readonly="readonly" type="text" class="sets text-center" style="border-radius: 0px 3px 3px 0px ">
+					</div>
+				</div>
+				
+				<table>
+					<thead>
+						<tr>
+							<th width="1000">Workout</th>
+							<th width="1000">Reps</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="exer"></td>
+							<td class="reps"></td>
+						</tr>
+						<tr>
+							<td class="exer"></td>
+							<td class="reps"></td>
+						</tr>
+						<tr>
+							<td class="exer"></td>
+							<td class="reps"></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<div class="progress radius text-center">
+					<span class="meter" style="width: 0%"></span>
+				</div>
+			</div>
+			
+			<div class="large-12 columns">
+				<ul class="button-group radius even-2">
+				 	<li><button class="tiny button" id="new-set">New Set</button></li>
+					<li><button class="tiny button" id="set-complete">Set Complete</button></li>
+				</ul>
+			</div>
+		</section>
+		
+		<script src="js/app.min.js"></script>
+		<script>
+			
+			var sets = [2,3,4];
+			var setsel = $('.sets');
+			
+			var exers = ['Burpees', 'Incline Push-Ups', 'Squats', 'Sit-Ups', 'Lunges', 'Tuck Jumps', 'Dips', 'Triceps', 'Cross Sit-Ups', 'Jackknife', 'Butterfly Dumbell', 'Obliques'];
+			var exerel = $('.exer');
+			
+			var reps = [5,6,7,8,9,10];
+			var repsel = $('.reps');
+			
+			var meter = $('.meter');
+			
+			var newset = $('#new-set');
+			var setcomplete = $('#set-complete');
+			
+			var count = 0;
+			
+			$(document).ready(function() {
+			    $(newset).click();
+			});
+			
+			function randomizer(arr) {
+				return arr[Math.floor(Math.random()*arr.length)];
+			}
+			
+			$(newset).click(function(){
+				var set = randomizer(sets);
+				$(setsel).attr('value', set);
+				
+				var ins = exers;
+				$(exerel).each(function(){
+					var exer = randomizer(ins);
+					$(this).text(exer);
+					ins = jQuery.grep(ins, function(value) {
+					  	return value != exer;
+					});
+					console.log(ins);
+				});
+				
+				$(repsel).each(function(){
+					var rep = randomizer(reps);
+					$(this).text(rep);
+				});
+				
+				$(meter).css('width', 0 + '%');
+				count = 0;
+				
+				$(setcomplete).text('Set Complete').removeClass('success disabled');
+			});
+			
+			$(setcomplete).click(function(){
+				count++;
+				var completed = (count / $(setsel).val()) * 100;
+				if (completed <= 100) {
+					$(meter).css('width', completed + '%');
+				}
+				
+				if (completed == 100) {
+					$(setcomplete).text('Workout Complete').addClass('success disabled');
+				}
+			});
+			
+		</script>
+	</body>
+</html>
