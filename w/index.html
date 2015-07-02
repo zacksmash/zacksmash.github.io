@@ -65,7 +65,7 @@
 		
 		<script src="js/app.min.js"></script>
 		<script>
-			
+		(function($) {
 			var sets = [2,3,4];
 			var setsel = $('.sets');
 			
@@ -126,7 +126,7 @@
 					$(setcomplete).text('Workout Complete').addClass('success disabled');
 				}
 			});
-			
+		}(jQuery));
 		</script>
 	</body>
 </html>
