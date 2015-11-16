@@ -248,7 +248,12 @@ main {
 		  width: 100px;
 		  height: 100px;
 		  position: relative;
-		  margin-bottom: 2rem;
+			margin: 0 auto 2rem auto;
+			
+			@media #{$large-up} {
+				margin: 0 0 2rem 0;
+			}
+			
 		  
 			.card {
 				width: 100%;
@@ -260,9 +265,9 @@ main {
 			  	-webkit-transform: rotatey(-180deg);
 			  }
 			  
-			  &:hover {
-				  -webkit-transform: rotatey(-180deg);
-			  }
+			  //&:hover {
+				  //-webkit-transform: rotatey(-180deg);
+			  //}
 			  
 				.face {
 				  width: 100%;
@@ -270,7 +275,6 @@ main {
 				  position: absolute;
 				  -webkit-backface-visibility: hidden ;
 				  z-index: 2;
-				  text-align: center;
 				}
 				
 				.front {
