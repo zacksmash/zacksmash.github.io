@@ -5293,57 +5293,57 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/img\/advancedcfo.png": {
-		"fileType": 32768,
+	"\/img\/advancedcfo.jpg": {
+		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 2.54488e+06,
-		"inputAbbreviatedPath": "\/img\/advancedcfo.png",
-		"outputAbbreviatedPath": "\/img\/advancedcfo.png",
+		"initialSize": 156096,
+		"inputAbbreviatedPath": "\/img\/advancedcfo.jpg",
+		"outputAbbreviatedPath": "\/img\/advancedcfo.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/allmoxy.png": {
-		"fileType": 32768,
+	"\/img\/allmoxy.jpg": {
+		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 1.92488e+06,
-		"inputAbbreviatedPath": "\/img\/allmoxy.png",
-		"outputAbbreviatedPath": "\/img\/allmoxy.png",
+		"initialSize": 267874,
+		"inputAbbreviatedPath": "\/img\/allmoxy.jpg",
+		"outputAbbreviatedPath": "\/img\/allmoxy.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/camplins.png": {
-		"fileType": 32768,
+	"\/img\/camplins.jpg": {
+		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 1.1099e+06,
-		"inputAbbreviatedPath": "\/img\/camplins.png",
-		"outputAbbreviatedPath": "\/img\/camplins.png",
+		"initialSize": 85343,
+		"inputAbbreviatedPath": "\/img\/camplins.jpg",
+		"outputAbbreviatedPath": "\/img\/camplins.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/honeyville.png": {
-		"fileType": 32768,
+	"\/img\/honeyville.jpg": {
+		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 5.25215e+06,
-		"inputAbbreviatedPath": "\/img\/honeyville.png",
-		"outputAbbreviatedPath": "\/img\/honeyville.png",
+		"initialSize": 255727,
+		"inputAbbreviatedPath": "\/img\/honeyville.jpg",
+		"outputAbbreviatedPath": "\/img\/honeyville.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/mathco.png": {
-		"fileType": 32768,
+	"\/img\/mathco.jpg": {
+		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 1.29354e+06,
-		"inputAbbreviatedPath": "\/img\/mathco.png",
-		"outputAbbreviatedPath": "\/img\/mathco.png",
+		"initialSize": 144859,
+		"inputAbbreviatedPath": "\/img\/mathco.jpg",
+		"outputAbbreviatedPath": "\/img\/mathco.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5370,13 +5370,13 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/steton.png": {
-		"fileType": 32768,
+	"\/img\/steton.jpg": {
+		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 2.86438e+06,
-		"inputAbbreviatedPath": "\/img\/steton.png",
-		"outputAbbreviatedPath": "\/img\/steton.png",
+		"initialSize": 140504,
+		"inputAbbreviatedPath": "\/img\/steton.jpg",
+		"outputAbbreviatedPath": "\/img\/steton.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
