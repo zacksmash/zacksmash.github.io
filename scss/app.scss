@@ -121,8 +121,24 @@ main {
 			
 			.my-projects {
 				li {
+					a h5 strong {
+						transition: .2s;
+					}
+					
+					a:hover h5 strong {
+						color: $primary-color;
+					}
+					
 					h5 {
 						margin-top: 1rem;
+						
+						&:hover {
+							color: $primary-color;
+						}
+						
+						i {
+							color: $primary-color;
+						}
 					}
 					
 					img {
