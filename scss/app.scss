@@ -244,10 +244,49 @@ main {
 			}
 		}
 		
+		.flip {
+		  width: 100px;
+		  height: 100px;
+		  position: relative;
+		  margin-bottom: 2rem;
+		  
+			.card {
+				width: 100%;
+			  height: 100%;
+			  -webkit-transform-style: preserve-3d;
+			  -webkit-transition: .75s;
+		  
+				&.flipped {
+			  	-webkit-transform: rotatey(-180deg);
+			  }
+			  
+			  &:hover {
+				  -webkit-transform: rotatey(-180deg);
+			  }
+			  
+				.face {
+				  width: 100%;
+				  height: 100%;
+				  position: absolute;
+				  -webkit-backface-visibility: hidden ;
+				  z-index: 2;
+				  text-align: center;
+				}
+				
+				.front {
+				  position: absolute;
+				  z-index: 1;
+				}
+				
+				.back {
+				  -webkit-transform: rotatey(180deg);
+				}
+			}
+		}
+		
 		img {
 			width: 100px;
 			border-radius: 1000px;
-			margin-bottom: 2rem;
 			border: 2px solid $primary-color;
 			
 			@media #{$small-only} {

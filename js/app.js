@@ -8,3 +8,11 @@ smoothScroll.init({
 });
 
 $('.current-year').text(new Date().getFullYear());
+
+function flipImage() {
+	$('.card').toggleClass('flipped');
+}
+
+setInterval(function(){ 
+	flipImage()
+}, 5000);
