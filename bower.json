@@ -1,0 +1,10 @@
+{
+  "name": "foundation-libsass-template",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation",
+    "font-awesome": "~4.4.0",
+    "font-mfizz": "~2.0.1",
+    "simptip": "~1.0.4",
+    "smooth-scroll.js": "~7.1.1"
+  }
+}
