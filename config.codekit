@@ -5363,20 +5363,9 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 286134,
+		"initialSize": 449510,
 		"inputAbbreviatedPath": "\/img\/sidebar.jpg",
 		"outputAbbreviatedPath": "\/img\/sidebar.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/sidebarx.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 79395,
-		"inputAbbreviatedPath": "\/img\/sidebarx.jpg",
-		"outputAbbreviatedPath": "\/img\/sidebarx.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
