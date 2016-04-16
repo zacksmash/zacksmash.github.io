@@ -1,0 +1,78 @@
+<div class="text-center loading" ng-if="! policyLoaded">
+	<i class="material-icons">filter_tilt_shift</i>
+</div>
+
+<main ng-if="policyLoaded">
+	<aside>
+		<section>
+		  <section class="sidebar-item">
+				<h3>{{policy.type}} Policy</h3>
+				<h6>For <strong>{{ policy.address }}</strong></h6>
+		  </section>
+		  <section class="sidebar-item">
+				<h6>Name Of Insured:</h6>
+				<h5>{{ policy.insured_name }}</h5>
+		  </section>
+		  <section class="sidebar-item">
+				<h6>Policy #:</h6>
+				<h5>{{ policy.number }}</h5>
+		  </section>
+		  <section class="sidebar-item">
+				<h6>Annual Premium:</h6>
+				<h5>{{ policy.premium }}</h5>
+		  </section>
+		  <section class="sidebar-item">
+				<h6>Payment Due:</h6>
+				<h5>{{ policy.payment_due }}</h5>
+		  </section>
+		  <section class="sidebar-item list">
+				<p><a href="">Make Changes To My Policy<i class="material-icons">chevron_right</i></a></p>
+				<p><a href="">Request A Cancelation<i class="material-icons">chevron_right</i></a></p>
+				<p><a href="#/claim/{{ policy.number }}">Report A Loss<i class="material-icons">chevron_right</i></a></p>
+		  </section>
+		</section>
+	</aside>
+
+	<article>
+		<section>
+			<tabset>
+		    <tab heading="Activity">
+		    	<div class="tab-row" ng-repeat="activity in policy.activity">
+						<i class="material-icons icon-left">speaker_notes</i>
+						{{ activity.description }}
+		    	</div>
+		    </tab>
+		    <tab heading="Documents">
+		    	<div class="tab-row" ng-repeat="document in policy.documents">
+						<i class="material-icons icon-left">insert_drive_file</i>
+						{{ document.description }}
+						<i class="material-icons icon-right" onclick="alert('Download This Document')">file_download</i>
+		    	</div>
+		    </tab>
+		    <tab heading="Payments">
+		    	<div class="tab-row" ng-repeat="payment in policy.payments">
+						<i class="material-icons icon-left" ng-if="payment.type == 'due'">date_range</i>
+						<i class="material-icons icon-left" ng-if="payment.type == 'pending'">flag</i>
+						<i class="material-icons icon-left" ng-if="payment.type == 'posted'">check_box</i>
+						{{ payment.description }} 
+		    	</div>
+		    </tab>
+		    <tab heading="Agent">
+		    	<div class="agent-info">
+			    	<div class="small-4 columns">
+			    		<img src="http://placehold.it/400" class="th radius">
+			    	</div>
+		    		<div class="small-8 columns">
+		    			<h4>AGENT INFO</h4>
+		    			<hr>
+		    			<p><strong>Name:</strong> {{ policy.agent.first }} {{ policy.agent.last}}</p>
+		    			<p><strong>Phone:</strong> {{ policy.agent.phone }}</p>
+		    			<p><strong>Address:</strong> {{ policy.agent.address }}</p>
+		    			<p><strong>Email:</strong> {{ policy.agent.email }}</p>
+		    		</div>
+		    		</div>
+		    </tab>
+		  </tabset>
+		</section>
+	</article>
+</main>

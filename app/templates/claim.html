@@ -1,0 +1,64 @@
+<main class="submit-claim">
+	<article class="full" style="background: white;">
+		<section>
+			<header>
+				<h3>Report A Loss: Step 1</h3>
+			</header>
+
+			<div class="row">
+				<div class="small-12 medium-7 large-6 medium-centered columns">
+					<form name="claimForm">
+						<div class="step-one" ng-if="claimStep === 1">
+							<label>Policy Number:</label>
+							<p ng-if="policyNumber">#{{ policyNumber }}</p>
+							<input type="hidden" value="{{ policyNumber }}" ng-if="policyNumber">
+							<input type="text" ng-if="!policyNumber">
+							<label>Date Of Loss:</label>
+							<input type="text" ng-model="claim.dateOfLoss">
+							<label>Time Of Loss:</label>
+							<input type="text" ng-model="claim.timeOfLoss">
+							<label>Insured Home Phone Number:</label>
+							<input type="text" ng-model="claim.homePhone">
+							<label>Other Phone Number:</label>
+							<input type="text" ng-model="claim.otherPhone">
+							<button class="button expand" ng-click="nextStep(2)">NEXT STEP</button>
+						</div>
+
+						<div class="step-two" ng-if="claimStep === 2">
+							<label>Loss Payee #1:</label>
+							<input type="text" ng-model="claim.lossPayeeOne">
+							<label>Loss Payee #2:</label>
+							<input type="text" ng-model="claim.lossPayeeTwo">
+							<label>Loss Payee #3:</label>
+							<input type="text" ng-model="claim.lossPayeeThree">
+							<label>When and where should the insured be contacted:</label>
+							<small>Include additional contact information, such as secondary contact(s) if applicable.</small>
+							<textarea rows="5" ng-model="claim.contactInfo"></textarea>
+							<button class="button expand" ng-click="nextStep(3)">NEXT STEP</button>
+						</div>
+
+						<div class="step-three" ng-if="claimStep === 3">
+							<label>Estimated dollar value of loss (whole dollars only):</label>
+							<input type="text" ng-model="claim.lossEstimate">
+							<label>Describe how the loss occurred:</label>
+							<textarea rows="5" ng-model="claim.lossOccurrance"></textarea>
+							<label>Describe the damage to insured property:</label>
+							<textarea rows="5" ng-model="claim.lossDamage"></textarea>
+							<label>Are temporary repairs necessary to prevent further damage?</label>
+							<ul class="inline-list">
+								<li><label for="repairs-yes"><input type="radio" name="repairs" id="repairs-yes" selected ng-model="claim.repairs">Yes</label></li>
+								<li><label for="repairs-no"><input type="radio" name="repairs" id="repairs-no" ng-model="claim.repairs">No</label></li>
+							</ul>
+							<label>Is there other insurance on damaged property?</label>
+							<ul class="inline-list">
+								<li><label for="insurance-yes"><input type="radio" name="insurance" id="insurance-yes" selected ng-model="claim.insurance">Yes</label></li>
+								<li><label for="insurance-no"><input type="radio" name="insurance" id="insurance-no" ng-model="claim.insurance">No</label></li>
+							</ul>
+							<button class="button expand" ng-click="submitClaim()">SUBMIT CLAIM</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</article>
+</main>
