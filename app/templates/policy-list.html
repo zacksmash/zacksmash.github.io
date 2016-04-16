@@ -20,7 +20,7 @@
 					<tr ng-repeat="policy in policies">
 						<td ng-click="$parent.policy($index + 1)">#{{ policy.number }}</td>
 						<td ng-click="$parent.policy($index + 1)"><strong>{{ policy.type }} Insurance:</strong> {{ policy.address }}</td>
-						<td class="text-center" ng-click="$parent.policy($index + 1)">
+						<td ng-click="$parent.policy($index + 1)">
 							<span class="radius success label" ng-if="policy.status === 1">In Effect</span>
 							<span class="radius secondary label" ng-if="policy.status === 2">Expired</span>
 							<span class="radius alert label" ng-if="policy.status === 3">Cancelled</span>
