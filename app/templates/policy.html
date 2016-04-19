@@ -38,13 +38,28 @@
 			<tabset>
 		    <tab heading="Activity">
 		    	<div class="tab-row" ng-repeat="activity in policy.activity">
-						<i class="material-icons icon-left">speaker_notes</i>
+						<i class="material-icons icon-left" ng-if="activity.type === 'good'">check_box</i>
+						<i class="material-icons icon-left" ng-if="activity.type === 'bad'">cancel</i>
+						<i class="material-icons icon-left" ng-if="activity.type === 'meh'">warning</i>
 						{{ activity.description }}
 		    	</div>
 		    </tab>
 		    <tab heading="Documents">
-		    	<div class="tab-row" ng-repeat="document in policy.documents">
+		    	<div class="tab-divider" ng-if="policy.upcoming_documents">Upcoming Documents</div>
+		    	<div class="tab-row" ng-repeat="document in policy.upcoming_documents">
+						<i class="material-icons icon-left">unarchive</i>
+						{{ document.description }}
+						<i class="material-icons icon-right" onclick="alert('Download This Document')">file_download</i>
+		    	</div>
+		    	<div class="tab-divider" ng-if="policy.current_documents">Current Documents</div>
+		    	<div class="tab-row" ng-repeat="document in policy.current_documents">
 						<i class="material-icons icon-left">insert_drive_file</i>
+						{{ document.description }}
+						<i class="material-icons icon-right" onclick="alert('Download This Document')">file_download</i>
+		    	</div>
+		    	<div class="tab-divider" ng-if="policy.past_documents">Prior Documents</div>
+		    	<div class="tab-row" ng-repeat="document in policy.past_documents">
+						<i class="material-icons icon-left">update</i>
 						{{ document.description }}
 						<i class="material-icons icon-right" onclick="alert('Download This Document')">file_download</i>
 		    	</div>

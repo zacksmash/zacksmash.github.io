@@ -37,11 +37,13 @@
       "description": "ad dolore eiusmod cillum culpa sit officia consectetur labore aliquip"
     }
   ],
-  "documents": [
+  "upcoming_documents": [
     {
       "id": 0,
       "description": "tempor tempor in deserunt sunt voluptate deserunt ut enim nulla"
-    },
+    }
+  ],
+  "current_documents": [
     {
       "id": 1,
       "description": "duis amet et ex commodo officia laboris consectetur voluptate in"
@@ -61,7 +63,9 @@
     {
       "id": 5,
       "description": "consequat adipisicing minim culpa id amet sint officia ut esse"
-    },
+    }
+  ],
+  "past_documents": [
     {
       "id": 6,
       "description": "veniam tempor cupidatat aute tempor tempor officia ea dolor pariatur"
