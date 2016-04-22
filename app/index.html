@@ -21,7 +21,7 @@
 		    <top-bar-section>
 		      <!-- Right Nav Section -->
 		      <ul class="right">
-		        <li><a>Logout<i class="material-icons">input</i></a></li>
+		        <li><a ng-click="logout()" ng-if="auth.user">Logout<i class="material-icons">input</i></a></li>
 						<li class="has-form">
 						  <a href="#/claim" class="button">Report A Loss</a>
 						</li>
@@ -31,7 +31,7 @@
 		</nav>
 
 		<nav class="app-nav" ng-controller="AppCtrl">
-		  <top-bar>
+		  <top-bar ng-if="auth.user">
 	    	<ul class="title-area hide-for-medium-up">
 		      <li class="name"><h1><a href="#">InsureSpan</a></h1></li>
 		      <li toggle-top-bar class="menu-icon"><a>Menu<span></span></a></li>
@@ -41,14 +41,14 @@
 		    	<!-- Left Nav Section -->
 		      <ul class="left">
 		        <li class="icon"><a><i class="material-icons">account_circle</i></a></li>
-		        <li class="user"><a>Hi, John Doe</a></li>
+		        <li class="user"><a>Hi, {{ auth.data.name }}</a></li>
 		      </ul>
 		      <!-- Right Nav Section -->
 		      <ul class="right">
 		        <li has-dropdown class="icon">
 		        	<a><i class="material-icons">more_vert</i></a>
 		        	<ul top-bar-dropdown>
-								<li><a href="#/policies">My Policies</a></li>
+								<li><a href="#/">My Policies</a></li>
 								<li><a>New Policy</a></li>
 								<li><a>Support</a></li>
 		        	</ul top-bar-dropdown>

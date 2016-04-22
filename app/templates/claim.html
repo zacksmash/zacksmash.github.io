@@ -11,8 +11,11 @@
 						<div class="step-one" ng-if="claimStep === 1">
 							<label>Policy Number:</label>
 							<p ng-if="policyNumber">#{{ policyNumber }}</p>
-							<input type="hidden" value="{{ policyNumber }}" ng-if="policyNumber">
-							<input type="text" ng-if="!policyNumber">
+							<input type="hidden" value="{{ policyNumber }}" ng-if="policyNumber && auth.user">
+							<select ng-if="!policyNumber && auth.user">
+								<option ng-repeat="policy in policies" value="{{ policy.number }}">#{{ policy.number }} ({{ policy.address }})</option>
+							</select>
+							<input type="text" ng-if="!policyNumber && !auth.user">
 							<label>Date Of Loss:</label>
 							<input type="text" ng-model="claim.dateOfLoss">
 							<label>Time Of Loss:</label>
@@ -25,23 +28,26 @@
 						</div>
 
 						<div class="step-two" ng-if="claimStep === 2">
-							<label>Loss Payee #1:</label>
-							<input type="text" ng-model="claim.lossPayeeOne">
-							<label>Loss Payee #2:</label>
-							<input type="text" ng-model="claim.lossPayeeTwo">
-							<label>Loss Payee #3:</label>
-							<input type="text" ng-model="claim.lossPayeeThree">
 							<label>When and where should the insured be contacted:</label>
 							<small>Include additional contact information, such as secondary contact(s) if applicable.</small>
 							<textarea rows="5" ng-model="claim.contactInfo"></textarea>
+							<label>Estimated dollar value of building damages:</label>
+							<small>(whole dollars only)</small>
+							<input type="text" ng-model="claim.buildingEstimate">
+							<label>Estimated dollar value of personal property damages:</label>
+							<small>(whole dollars only)</small>
+							<input type="text" ng-model="claim.personalEstimate">
+							<label>What was the cause of loss:</label>
+							<select ng-model="claim.lossCause">
+								<option value="option_1">Tidal water overflow</option>
+								<option value="option_2">Stream, river or lake overflow</option>
+								<option value="option_3">Accumulation of rainfall or snow melt</option>
+								<option value="option_4">Landslide, land subsidence, sinkhole</option>
+							</select>
 							<button class="button expand" ng-click="nextStep(3)">NEXT STEP</button>
 						</div>
 
 						<div class="step-three" ng-if="claimStep === 3">
-							<label>Estimated dollar value of loss (whole dollars only):</label>
-							<input type="text" ng-model="claim.lossEstimate">
-							<label>Describe how the loss occurred:</label>
-							<textarea rows="5" ng-model="claim.lossOccurrance"></textarea>
 							<label>Describe the damage to insured property:</label>
 							<textarea rows="5" ng-model="claim.lossDamage"></textarea>
 							<label>Are temporary repairs necessary to prevent further damage?</label>

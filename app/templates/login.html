@@ -1,6 +1,12 @@
 <div class="row">
 	<div class="large-5 medium-8 small-12 medium-centered columns">
 		<div class="panel radius login-form">
+			<div data-alert class="alert-box warning radius" ng-if="authenticationError">
+				<div class="text-center">
+					<i class="material-icons">warning</i>
+					<div>The username or password you entered was incorrect...</div>
+				</div>
+			</div>
 			<form>
 				<label>Email</label>
 				<input type="email" name="email" ng-model="auth.email" required>
@@ -9,9 +15,9 @@
 				<button type="submit" class="button expand" ng-click="authenticate(auth)">Login</button>
 				<hr>
 				<div class="clearfix">
-					<a href="" class="right">Forgot Your Password?</a>
+					<a href="" class="right"><small>Forgot Your Password?</small></a>
 				</div>
-			</form>			
+			</form>		
 		</div>
 		<div class="text-center loading" ng-if="authenticating">
 			<i class="material-icons">filter_tilt_shift</i>
