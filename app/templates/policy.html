@@ -38,9 +38,10 @@
 			<tabset>
 		    <tab heading="Activity">
 		    	<div class="tab-row" ng-repeat="activity in policy.activity">
-						<i class="material-icons icon-left" ng-if="activity.type === 'good'">check_box</i>
-						<i class="material-icons icon-left" ng-if="activity.type === 'bad'">cancel</i>
-						<i class="material-icons icon-left" ng-if="activity.type === 'meh'">warning</i>
+						<i class="material-icons icon-left" ng-if="activity.type === 'change'">chat</i>
+						<i class="material-icons icon-left" ng-if="activity.type === 'payment'">credit_card</i>
+						<strong ng-if="activity.type === 'change'">Policy Change:</strong>
+						<strong ng-if="activity.type === 'payment'">Payment Made:</strong>
 						{{ activity.description }}
 		    	</div>
 		    </tab>
@@ -62,14 +63,6 @@
 						<i class="material-icons icon-left">update</i>
 						{{ document.description }}
 						<i class="material-icons icon-right" onclick="alert('Download This Document')">file_download</i>
-		    	</div>
-		    </tab>
-		    <tab heading="Payments">
-		    	<div class="tab-row" ng-repeat="payment in policy.payments">
-						<i class="material-icons icon-left" ng-if="payment.type == 'due'">date_range</i>
-						<i class="material-icons icon-left" ng-if="payment.type == 'pending'">flag</i>
-						<i class="material-icons icon-left" ng-if="payment.type == 'posted'">check_box</i>
-						{{ payment.description }} 
 		    	</div>
 		    </tab>
 		    <tab heading="Agent">

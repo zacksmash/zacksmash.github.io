@@ -9,31 +9,31 @@
   "payment_due_date": "Oct 30, 2014",
   "activity": [
     {
-      "type": "bad",
+      "type": "change",
       "description": "veniam ipsum quis nisi qui occaecat aute duis Lorem culpa"
     },
     {
-      "type": "good",
+      "type": "payment",
       "description": "nisi ullamco amet cupidatat voluptate pariatur exercitation labore cillum qui"
     },
     {
-      "type": "good",
+      "type": "change",
       "description": "consequat ex est tempor eu officia ex non adipisicing nostrud"
     },
     {
-      "type": "meh",
+      "type": "change",
       "description": "incididunt est ad do veniam in eu reprehenderit consequat ipsum"
     },
     {
-      "type": "meh",
+      "type": "change",
       "description": "amet cillum ex aliquip enim exercitation commodo est sit aliquip"
     },
     {
-      "type": "bad",
+      "type": "payment",
       "description": "commodo laborum nostrud ipsum non qui sit officia cillum non"
     },
     {
-      "type": "good",
+      "type": "change",
       "description": "ad dolore eiusmod cillum culpa sit officia consectetur labore aliquip"
     }
   ],
@@ -81,28 +81,6 @@
     {
       "id": 9,
       "description": "non in exercitation sunt pariatur consequat duis deserunt dolor nisi"
-    }
-  ],
-  "payments": [
-    {
-      "type": "due",
-      "description": "ea ex irure id occaecat sit ad incididunt Lorem tempor"
-    },
-    {
-      "type": "pending",
-      "description": "fugiat commodo deserunt culpa do anim nulla sunt occaecat nostrud"
-    },
-    {
-      "type": "posted",
-      "description": "eu labore consequat consectetur magna nisi voluptate nostrud laborum eu"
-    },
-    {
-      "type": "posted",
-      "description": "voluptate irure ad ipsum qui consectetur do sint magna dolor"
-    },
-    {
-      "type": "posted",
-      "description": "dolor minim exercitation ut irure aliquip do nisi adipisicing est"
     }
   ],
   "agent": {
