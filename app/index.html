@@ -3,17 +3,17 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href='https://fonts.googleapis.com/css?family=Telex' rel='stylesheet' type='text/css'>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Signika:300,700' rel='stylesheet' type='text/css'>
 		<title>InsureSpan | Welcome</title>
 		<link rel="stylesheet" href="./css/app.css" />
 	</head>
-	<body ng-app="angularApp">
-		<nav class="main-nav" ng-controller="AppCtrl">
+	<body ng-app="angularApp" ng-controller="AppCtrl">
+		<nav class="main-nav">
 		  <top-bar>
 		    <ul class="title-area">
 		      <li class="name">
-		        <h1><a href="#/">InsureSpan</a></h1>
+		        <h1><a href="#/">insure&bull;<span>span</span></a></h1>
 		      </li>
 		      <li toggle-top-bar class="menu-icon"><a>Menu<span></span></a></li>
 		    </ul>
@@ -21,44 +21,26 @@
 		    <top-bar-section>
 		      <!-- Right Nav Section -->
 		      <ul class="right">
-		        <li><a ng-click="logout()" ng-if="auth.user">Logout<i class="material-icons">input</i></a></li>
-						<li class="has-form">
-						  <a href="#/claim" class="button">Report A Loss</a>
+						<li>
+						  <a href="#/claim" class="nav-button"><i class="entypo-flag"></i>Report A Loss</a>
 						</li>
 		      </ul>
 		    </top-bar-section>
 		  </top-bar>
 		</nav>
 
-		<nav class="app-nav" ng-controller="AppCtrl">
-		  <top-bar ng-if="auth.user">
-	    	<ul class="title-area hide-for-medium-up">
-		      <li class="name"><h1><a href="#">InsureSpan</a></h1></li>
-		      <li toggle-top-bar class="menu-icon"><a>Menu<span></span></a></li>
-		    </ul>
-
-		    <top-bar-section>
-		    	<!-- Left Nav Section -->
-		      <ul class="left">
-		        <li class="icon"><a><i class="material-icons">account_circle</i></a></li>
-		        <li class="user"><a>Hi, {{ auth.data.name }}</a></li>
-		      </ul>
-		      <!-- Right Nav Section -->
-		      <ul class="right">
-		        <li has-dropdown class="icon">
-		        	<a><i class="material-icons">more_vert</i></a>
-		        	<ul top-bar-dropdown>
-								<li><a href="#/">My Policies</a></li>
-								<li><a>New Policy</a></li>
-								<li><a>Support</a></li>
-		        	</ul top-bar-dropdown>
-		        </li>
-		      </ul>
-		    </top-bar-section>
-		  </top-bar>
+		<nav class="sidebar" ng-if="auth.user">
+			<ul class="main-menu">
+				<li ng-class="{ active: isActive('/')}"><a href="#/"><i class="entypo-doc-text"></i>My Policies</a></li>
+				<li><a href="#"><i class="entypo-plus-squared"></i>New Policy</a></li>
+				<li><a href="#"><i class="entypo-chat"></i>Support</a></li>
+				<li><a ng-click="logout()"><i class="entypo-logout"></i>Logout</a></li>
+			</ul>
 		</nav>
 	  
-	  <ng-view></ng-view>
+	  <main ng-class="{'squishy': auth.user}">
+	  	<ng-view></ng-view>
+	  </main>
 	
 		<script src="./js/app.js"></script>
 		<script src="//localhost:35729/livereload.js?snipver=1" type="text/javascript"></script>

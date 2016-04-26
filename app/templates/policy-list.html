@@ -1,34 +1,32 @@
-<div class="text-center loading" ng-if="! policiesLoaded">
-	<i class="material-icons">filter_tilt_shift</i>
-</div>
+<section class="policy-list">
+	<div class="row">
+		<div class="small-12 columns">
+			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+			  <li class="policy-card" ng-repeat="policy in policies">
+			  	<div class="card-details">
+						<header>
+							<h4><i class="entypo-doc-text-inv"></i>{{ policy.type }} Policy</h4>
+						</header>
 
-<main class="policy-list" ng-if="policiesLoaded">
-	<article class="full">
-		<section>
-			<header>
-				<h3>My Policies</h3>
-			</header>
-			<table>
-				<thead>
-					<tr>
-						<th>Policy #</th>
-						<th>Insured Address</th>
-						<th>Status</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="policy in policies">
-						<td ng-click="$parent.policy($index + 1)">#{{ policy.number }}</td>
-						<td ng-click="$parent.policy($index + 1)"><strong>{{ policy.type }} Insurance:</strong> {{ policy.address }}</td>
-						<td ng-click="$parent.policy($index + 1)">
-							<span class="radius success label" ng-if="policy.status === 1">In Effect</span>
-							<span class="radius secondary label" ng-if="policy.status === 2">Expired</span>
-							<span class="radius alert label" ng-if="policy.status === 3">Cancelled</span>
-							<span class="radius warning label" ng-if="policy.status === 4">Pending</span>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</section>
-	</article>
-</main>
+						<section>
+							<h6>Policy Number: #{{ policy.number }} </h6>
+							<hr>
+							<h6>{{ policy.address }} </h6>
+							<hr>
+							<h6>Status: 
+								<span class="radius success label" ng-if="policy.status == 1">In Effect</span>
+								<span class="radius secondary label" ng-if="policy.status == 2">Expired</span>
+								<span class="radius alert label" ng-if="policy.status == 3">Cancelled</span>
+								<span class="radius warning label" ng-if="policy.status == 4">Pending</span>
+							</h6>
+						</section>
+
+						<footer>
+							<a href="#/policy/{{ policy.number }}">View Policy<i class="entypo-right-open-big"></i></a>
+						</footer>
+					</div>
+			  </li>
+			</ul>
+		</div>
+	</div>	
+</section>
