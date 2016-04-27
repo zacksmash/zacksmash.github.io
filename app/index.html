@@ -15,29 +15,41 @@
 		      <li class="name">
 		        <h1><a href="#/">insure&bull;<span>span</span></a></h1>
 		      </li>
-		      <li toggle-top-bar class="menu-icon"><a>Menu<span></span></a></li>
+		      <li toggle-top-bar class="menu-icon" ng-if="auth.user"><a ng-click="toggleSidebar()"><i class="entypo-menu"></i></a></li>
 		    </ul>
 		
 		    <top-bar-section>
+		    	<!-- Left Nav Section -->
+		      <ul class="left hide-for-small">
+		      	<li class="user-info">
+							<a href="">
+								<img src="https://secure.gravatar.com/avatar/f9d5184e826d247e89708a0a4a014d49?s=64" alt="Place Holder">
+								<span>Hi, John Doe</span>
+							</a>
+		      	</li>
+		      </ul>
+
 		      <!-- Right Nav Section -->
-		      <ul class="right">
-						<li>
-						  <a href="#/claim" class="nav-button"><i class="entypo-flag"></i>Report A Loss</a>
+		      <ul class="right hide-for-small">
+		      	<li class="nav-button">
+						  <a href="#/claim"><i class="entypo-flag"></i>Report A Loss</a>
 						</li>
 		      </ul>
 		    </top-bar-section>
 		  </top-bar>
 		</nav>
 
-		<nav class="sidebar" ng-if="auth.user">
+		<nav class="sidebar" ng-if="auth.user" ng-class="{'open': showSidebar}">
 			<ul class="main-menu">
-				<li ng-class="{ active: isActive('/')}"><a href="#/"><i class="entypo-doc-text"></i>My Policies</a></li>
-				<li><a href="#"><i class="entypo-plus-squared"></i>New Policy</a></li>
-				<li><a href="#"><i class="entypo-chat"></i>Support</a></li>
-				<li><a ng-click="logout()"><i class="entypo-logout"></i>Logout</a></li>
+				<li ng-click="toggleSidebar()" class="show-for-small-only"><a href=""><i class="entypo-user"></i>Hi, {{ auth.data.name }}</a></li>
+				<li ng-click="toggleSidebar()" class="divider show-for-small-only"></li>
+				<li ng-click="toggleSidebar()" ng-class="{ active: isActive('/')}"><a href="#/"><i class="entypo-doc-text"></i>My Policies</a></li>
+				<li ng-click="toggleSidebar()"><a href=""><i class="entypo-plus-squared"></i>New Policy</a></li>
+				<li ng-click="toggleSidebar()"><a href=""><i class="entypo-chat"></i>Support</a></li>
+				<li ng-click="toggleSidebar()" ng-class="{ active: isActive('/claim')}" class="show-for-small-only"><a href="#/claim"><i class="entypo-flag"></i>Report A Loss</a></li>
+				<li ng-click="toggleSidebar()"><a ng-click="logout()"><i class="entypo-logout"></i>Logout</a></li>
 			</ul>
 		</nav>
-	  
 	  <main ng-class="{'squishy': auth.user}">
 	  	<ng-view></ng-view>
 	  </main>

@@ -9,16 +9,18 @@
 						</header>
 
 						<section>
-							<h6>Policy Number: #{{ policy.number }} </h6>
+							<p>Policy Number:</p>
+							<span>#{{ policy.number }}</span>
 							<hr>
-							<h6>{{ policy.address }} </h6>
+							<p>Address:</p>
+							<span>{{ policy.address }}</span>
 							<hr>
-							<h6>Status: 
+							<p>Status: 
 								<span class="radius success label" ng-if="policy.status == 1">In Effect</span>
 								<span class="radius secondary label" ng-if="policy.status == 2">Expired</span>
 								<span class="radius alert label" ng-if="policy.status == 3">Cancelled</span>
 								<span class="radius warning label" ng-if="policy.status == 4">Pending</span>
-							</h6>
+							</p>
 						</section>
 
 						<footer>
