@@ -1,15 +1,49 @@
 <section class="policy">
-	<div class="row">
-		<div class="small-12 columns">
-			
-		</div>
 
-		<div class="small-12 columns">
+	<div class="row">
+		<div class="large-4 small-12 columns">
+			<div class="policy-details">
+				<div class="policy-item">
+					<h4>{{ policy.type }} Policy</h4>
+					<h6>For: {{ policy.address }}</h6>
+				</div>
+
+				<div class="policy-item">
+					<h6>Name Of Insured:</h6>
+					<h5>{{ policy.insured_name }}</h5>
+				</div>
+
+				<div class="policy-item">
+					<h6>Policy Term:</h6>
+					<h5>{{ policy.term }}</h5>
+				</div>
+
+				<div class="policy-item">
+					<h6>Policy #:</h6>
+					<h5>{{ policy.number }}</h5>
+				</div>
+
+				<div class="policy-item">
+					<h6>Annual Premium:</h6>
+					<h5>{{ policy.premium }}</h5>
+				</div>
+
+				<div class="policy-item">
+					<h6>Payment Due:</h6>
+					<h5>{{ policy.payment_due}} by {{ policy.payment_due_date }}</h5>
+				</div>
+
+				<div class="policy-item">
+					<a href="#" class="link">Make Changes To My Policy<i class="entypo-right-open-big"></i></a>
+					<a href="#" class="link">Request Policy Cancelation<i class="entypo-right-open-big"></i></a>
+					<a href="#/claim/{{ policy.number }}" class="link">Report A Loss<i class="entypo-right-open-big"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="large-8 small-12 columns">
 			<tabset>
 		    <tab heading="Activity">
 		    	<div class="tab-row" ng-repeat="activity in policy.activity">
-						<i class="material-icons icon-left" ng-if="activity.type === 'change'">chat</i>
-						<i class="material-icons icon-left" ng-if="activity.type === 'payment'">credit_card</i>
 						<strong ng-if="activity.type === 'change'">Policy Change:</strong>
 						<strong ng-if="activity.type === 'payment'">Payment Made:</strong>
 						{{ activity.description }}
@@ -18,21 +52,15 @@
 		    <tab heading="Documents">
 		    	<div class="tab-divider" ng-if="policy.upcoming_documents">Upcoming Documents</div>
 		    	<div class="tab-row" ng-repeat="document in policy.upcoming_documents">
-						<i class="material-icons icon-left">unarchive</i>
 						{{ document.description }}
-						<i class="material-icons icon-right" onclick="alert('Download This Document')">file_download</i>
 		    	</div>
 		    	<div class="tab-divider" ng-if="policy.current_documents">Current Documents</div>
 		    	<div class="tab-row" ng-repeat="document in policy.current_documents">
-						<i class="material-icons icon-left">insert_drive_file</i>
 						{{ document.description }}
-						<i class="material-icons icon-right" onclick="alert('Download This Document')">file_download</i>
 		    	</div>
 		    	<div class="tab-divider" ng-if="policy.past_documents">Prior Documents</div>
 		    	<div class="tab-row" ng-repeat="document in policy.past_documents">
-						<i class="material-icons icon-left">update</i>
 						{{ document.description }}
-						<i class="material-icons icon-right" onclick="alert('Download This Document')">file_download</i>
 		    	</div>
 		    </tab>
 		    <tab heading="Agent">
@@ -48,7 +76,7 @@
 		    			<p><strong>Address:</strong> {{ policy.agent.address }}</p>
 		    			<p><strong>Email:</strong> {{ policy.agent.email }}</p>
 		    		</div>
-		    		</div>
+		    	</div>
 		    </tab>
 		  </tabset>
 		</div>
