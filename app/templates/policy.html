@@ -1,46 +1,68 @@
 <section class="policy">
-
-	<div class="row">
-		<div class="large-4 small-12 columns">
-			<div class="policy-details">
-				<div class="policy-item">
-					<h4>{{ policy.type }} Policy</h4>
-					<h6>For: {{ policy.address }}</h6>
+	<section class="policy-summary">
+		<div class="row">
+			<div class="large-4 small-12 columns border-right">
+				<div class="row">
+					<div class="small-12 columns border-bottom">
+						<header>
+							<h3><i class="entypo-doc-text-inv"></i>{{ policy.type }} Policy</h3>
+							<h6>For: {{ policy.address }}</h6>
+						</header>
+					</div>
 				</div>
-
-				<div class="policy-item">
-					<h6>Name Of Insured:</h6>
-					<h5>{{ policy.insured_name }}</h5>
+				<div class="row">
+					<div class="small-12 columns">
+						<section>
+							<a href="#" class="link">Make Changes To My Policy<i class="entypo-right-open-big"></i></a>
+							<a href="#" class="link">Request Policy Cancelation<i class="entypo-right-open-big"></i></a>
+							<a href="#/claim/{{ policy.number }}" class="link">Report A Loss<i class="entypo-right-open-big"></i></a>
+						</section>
+					</div>
 				</div>
-
-				<div class="policy-item">
-					<h6>Policy Term:</h6>
-					<h5>{{ policy.term }}</h5>
+			</div>
+			<div class="large-8 small-12 columns">
+				<div class="row">
+					<div class="small-12 text-center columns notification">
+						<div class="policy-item">
+							<h5><i class="entypo-lamp"></i><strong>Payment Due</strong></h5>
+							<h6>{{ policy.payment_due}} by {{ policy.payment_due_date }}</h6>
+						</div>
+					</div>
 				</div>
-
-				<div class="policy-item">
-					<h6>Policy #:</h6>
-					<h5>{{ policy.number }}</h5>
+				<div class="row border-bottom-large">
+					<div class="large-6 medium-6 small-12 columns">
+						<div class="policy-item">
+							<h6>Name Of Insured:</h6>
+							<h5>{{ policy.insured_name }}</h5>
+						</div>
+					</div>
+					<div class="large-6 medium-6 small-12 columns">
+						<div class="policy-item">
+							<h6>Policy Term:</h6>
+							<h5>{{ policy.term }}</h5>
+						</div>
+					</div>
 				</div>
-
-				<div class="policy-item">
-					<h6>Annual Premium:</h6>
-					<h5>{{ policy.premium }}</h5>
-				</div>
-
-				<div class="policy-item">
-					<h6>Payment Due:</h6>
-					<h5>{{ policy.payment_due}} by {{ policy.payment_due_date }}</h5>
-				</div>
-
-				<div class="policy-item">
-					<a href="#" class="link">Make Changes To My Policy<i class="entypo-right-open-big"></i></a>
-					<a href="#" class="link">Request Policy Cancelation<i class="entypo-right-open-big"></i></a>
-					<a href="#/claim/{{ policy.number }}" class="link">Report A Loss<i class="entypo-right-open-big"></i></a>
+				<div class="row">
+					<div class="large-6 medium-6 small-12 columns">
+						<div class="policy-item">
+							<h6>Policy #:</h6>
+							<h5>{{ policy.number }}</h5>
+						</div>
+					</div>
+					<div class="large-6 medium-6 small-12 columns">
+						<div class="policy-item">
+							<h6>Annual Premium:</h6>
+							<h5>{{ policy.premium }}</h5>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="large-8 small-12 columns">
+	</section>
+
+	<div class="row">
+		<div class="small-12 columns">
 			<tabset>
 		    <tab heading="Activity">
 		    	<div class="tab-row" ng-repeat="activity in policy.activity">
@@ -65,17 +87,12 @@
 		    </tab>
 		    <tab heading="Agent">
 		    	<div class="agent-info">
-			    	<div class="small-4 columns">
-			    		<img src="http://placehold.it/400" class="th radius">
-			    	</div>
-		    		<div class="small-8 columns">
-		    			<h4>AGENT INFO</h4>
-		    			<hr>
-		    			<p><strong>Name:</strong> {{ policy.agent.first }} {{ policy.agent.last}}</p>
-		    			<p><strong>Phone:</strong> {{ policy.agent.phone }}</p>
-		    			<p><strong>Address:</strong> {{ policy.agent.address }}</p>
-		    			<p><strong>Email:</strong> {{ policy.agent.email }}</p>
-		    		</div>
+	    			<h4>AGENT INFO</h4>
+	    			<hr>
+	    			<p><strong>Name:</strong> {{ policy.agent.first }} {{ policy.agent.last}}</p>
+	    			<p><strong>Phone:</strong> {{ policy.agent.phone }}</p>
+	    			<p><strong>Address:</strong> {{ policy.agent.address }}</p>
+	    			<p><strong>Email:</strong> {{ policy.agent.email }}</p>
 		    	</div>
 		    </tab>
 		  </tabset>

@@ -1,62 +1,69 @@
 <section class="claim">
 	<div class="row">
-		<div class="small-12 medium-7 large-6 medium-centered columns">
-			<form name="claimForm">
-				<div class="step-one" ng-if="claimStep === 1">
-					<label>Policy Number:</label>
-					<p ng-if="policyNumber">#{{ policyNumber }}</p>
-					<input type="hidden" value="{{ policyNumber }}" ng-if="policyNumber && auth.user">
-					<select ng-if="!policyNumber && auth.user">
-						<option ng-repeat="policy in policies" value="{{ policy.number }}">#{{ policy.number }} ({{ policy.address }})</option>
-					</select>
-					<input type="text" ng-if="!policyNumber && !auth.user">
-					<label>Date Of Loss:</label>
-					<input type="text" ng-model="claim.dateOfLoss">
-					<label>Time Of Loss:</label>
-					<input type="text" ng-model="claim.timeOfLoss">
-					<label>Insured Home Phone Number:</label>
-					<input type="text" ng-model="claim.homePhone">
-					<label>Other Phone Number:</label>
-					<input type="text" ng-model="claim.otherPhone">
-					<button class="button expand" ng-click="nextStep(2)">NEXT STEP</button>
-				</div>
+		<div class="small-12 large-6 large-centered columns">
+			<div class="form-panel">
+				<i class="entypo-flag panel-icon"></i>
+				<h3>Report A Loss: <small>Step <span class="claim-step">{{ claimStep }}</span> of 3</small></h3>
+				<hr>
+				<form name="claimForm">
+					<div class="step-one" ng-if="claimStep === 1">
+						<label>Policy Number:</label>
+						<p ng-if="policyNumber">#{{ policyNumber }}</p>
+						<input type="hidden" value="{{ policyNumber }}" ng-if="policyNumber && auth.user">
+						<select ng-if="!policyNumber && auth.user">
+							<option ng-repeat="policy in policies" value="{{ policy.number }}">#{{ policy.number }} ({{ policy.address }})</option>
+						</select>
+						<input type="text" ng-if="!policyNumber && !auth.user">
+						<label>Date Of Loss:</label>
+						<input type="text" ng-model="claim.dateOfLoss">
+						<label>Time Of Loss:</label>
+						<input type="text" ng-model="claim.timeOfLoss">
+						<label>Insured Home Phone Number:</label>
+						<input type="text" ng-model="claim.homePhone">
+						<label>Other Phone Number:</label>
+						<input type="text" ng-model="claim.otherPhone">
+						<button class="small button next" ng-click="nextStep(2)">NEXT<i class="entypo-right-open-big"></i></button>
+					</div>
 
-				<div class="step-two" ng-if="claimStep === 2">
-					<label>When and where should the insured be contacted:</label>
-					<small>Include additional contact information, such as secondary contact(s) if applicable.</small>
-					<textarea rows="5" ng-model="claim.contactInfo"></textarea>
-					<label>Estimated dollar value of building damages:</label>
-					<small>(whole dollars only)</small>
-					<input type="text" ng-model="claim.buildingEstimate">
-					<label>Estimated dollar value of personal property damages:</label>
-					<small>(whole dollars only)</small>
-					<input type="text" ng-model="claim.personalEstimate">
-					<label>What was the cause of loss:</label>
-					<select ng-model="claim.lossCause">
-						<option value="option_1">Tidal water overflow</option>
-						<option value="option_2">Stream, river or lake overflow</option>
-						<option value="option_3">Accumulation of rainfall or snow melt</option>
-						<option value="option_4">Landslide, land subsidence, sinkhole</option>
-					</select>
-					<button class="button expand" ng-click="nextStep(3)">NEXT STEP</button>
-				</div>
+					<div class="step-two" ng-if="claimStep === 2">
+						<label>When and where should the insured be contacted:</label>
+						<small>Include additional contact information, such as secondary contact(s) if applicable.</small>
+						<textarea rows="5" ng-model="claim.contactInfo"></textarea>
+						<label>Estimated dollar value of building damages:</label>
+						<small>(whole dollars only)</small>
+						<input type="text" ng-model="claim.buildingEstimate">
+						<label>Estimated dollar value of personal property damages:</label>
+						<small>(whole dollars only)</small>
+						<input type="text" ng-model="claim.personalEstimate">
+						<label>What was the cause of loss:</label>
+						<select ng-model="claim.lossCause">
+							<option value="option_1">Tidal water overflow</option>
+							<option value="option_2">Stream, river or lake overflow</option>
+							<option value="option_3">Accumulation of rainfall or snow melt</option>
+							<option value="option_4">Landslide, land subsidence, sinkhole</option>
+						</select>
+						<button class="small button back" ng-click="nextStep(1)"><i class="entypo-left-open-big"></i>BACK</button>
+						<button class="small button next" ng-click="nextStep(3)">NEXT<i class="entypo-right-open-big"></i></button>
+					</div>
 
-				<div class="step-three" ng-if="claimStep === 3">
-					<label>Describe the damage to insured property:</label>
-					<textarea rows="5" ng-model="claim.lossDamage"></textarea>
-					<label>Are temporary repairs necessary to prevent further damage?</label>
-					<ul class="inline-list">
-						<li><label for="repairs-yes"><input type="radio" name="repairs" id="repairs-yes" selected ng-model="claim.repairs">Yes</label></li>
-						<li><label for="repairs-no"><input type="radio" name="repairs" id="repairs-no" ng-model="claim.repairs">No</label></li>
-					</ul>
-					<label>Is there other insurance on damaged property?</label>
-					<ul class="inline-list">
-						<li><label for="insurance-yes"><input type="radio" name="insurance" id="insurance-yes" selected ng-model="claim.insurance">Yes</label></li>
-						<li><label for="insurance-no"><input type="radio" name="insurance" id="insurance-no" ng-model="claim.insurance">No</label></li>
-					</ul>
-					<button class="button expand" ng-click="submitClaim()">SUBMIT CLAIM</button>
-				</div>
-			</form>
+					<div class="step-three" ng-if="claimStep === 3">
+						<label>Describe the damage to insured property:</label>
+						<textarea rows="5" ng-model="claim.lossDamage"></textarea>
+						<label>Are temporary repairs necessary to prevent further damage?</label>
+						<ul class="inline-list">
+							<li><label for="repairs-yes"><input type="radio" name="repairs" id="repairs-yes" selected ng-model="claim.repairs">Yes</label></li>
+							<li><label for="repairs-no"><input type="radio" name="repairs" id="repairs-no" ng-model="claim.repairs">No</label></li>
+						</ul>
+						<label>Is there other insurance on damaged property?</label>
+						<ul class="inline-list">
+							<li><label for="insurance-yes"><input type="radio" name="insurance" id="insurance-yes" selected ng-model="claim.insurance">Yes</label></li>
+							<li><label for="insurance-no"><input type="radio" name="insurance" id="insurance-no" ng-model="claim.insurance">No</label></li>
+						</ul>
+						<button class="small button back" ng-click="nextStep(2)"><i class="entypo-left-open-big"></i>BACK</button>
+						<button class="small button next" ng-click="submitClaim()">NEXT<i class="entypo-right-open-big"></i></button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </section>

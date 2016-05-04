@@ -7,6 +7,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Signika:300,700' rel='stylesheet' type='text/css'>
 		<title>InsureSpan | Welcome</title>
 		<link rel="stylesheet" href="./css/app.css" />
+		<!-- Design Inspiration: https://dribbble.com/shots/2648878-Project-Square-Free-Dashboard-PSD/attachments/531392 -->
 	</head>
 	<body ng-app="angularApp" ng-controller="AppCtrl">
 		<nav class="main-nav">
@@ -50,6 +51,7 @@
 				<li ng-click="toggleSidebar()"><a ng-click="logout()"><i class="entypo-logout"></i>Logout</a></li>
 			</ul>
 		</nav>
+
 	  <main ng-class="{'squishy': auth.user}">
 	  	<ng-view></ng-view>
 	  </main>
