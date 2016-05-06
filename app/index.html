@@ -32,8 +32,13 @@
 
 		      <!-- Right Nav Section -->
 		      <ul class="right hide-for-small">
+		      	<li class="app-status" ng-if="app.loading">
+		      		<a><span class="saving"><span></span>
+		      		<span></span>
+		      		<span></span></span></a>
+		      	</li>
 		      	<li class="nav-button">
-						  <a href="#/claim"><i class="entypo-flag"></i>Report A Loss</a>
+						  <a href="#/claim"><span><i class="entypo-flag"></i>Report A Loss</span></a>
 						</li>
 		      </ul>
 		    </top-bar-section>

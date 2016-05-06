@@ -1,101 +1,119 @@
-<section class="policy">
-	<section class="policy-summary">
+<section class="policy" ng-if="!app.loading">
+	<header class="policy-summary">
 		<div class="row">
-			<div class="large-4 small-12 columns border-right">
-				<div class="row">
-					<div class="small-12 columns border-bottom">
-						<header>
-							<h3><i class="entypo-doc-text-inv"></i>{{ policy.type }} Policy</h3>
-							<h6>For: {{ policy.address }}</h6>
-						</header>
-					</div>
-				</div>
-				<div class="row">
-					<div class="small-12 columns">
-						<section>
-							<a href="#" class="link">Make Changes To My Policy<i class="entypo-right-open-big"></i></a>
-							<a href="#" class="link">Request Policy Cancelation<i class="entypo-right-open-big"></i></a>
-							<a href="#/claim/{{ policy.number }}" class="link">Report A Loss<i class="entypo-right-open-big"></i></a>
-						</section>
-					</div>
-				</div>
-			</div>
-			<div class="large-8 small-12 columns">
-				<div class="row">
-					<div class="small-12 text-center columns notification">
-						<div class="policy-item">
-							<h5><i class="entypo-lamp"></i><strong>Payment Due</strong></h5>
-							<h6>{{ policy.payment_due}} by {{ policy.payment_due_date }}</h6>
-						</div>
-					</div>
-				</div>
-				<div class="row border-bottom-large">
-					<div class="large-6 medium-6 small-12 columns">
-						<div class="policy-item">
-							<h6>Name Of Insured:</h6>
-							<h5>{{ policy.insured_name }}</h5>
-						</div>
-					</div>
-					<div class="large-6 medium-6 small-12 columns">
-						<div class="policy-item">
-							<h6>Policy Term:</h6>
-							<h5>{{ policy.term }}</h5>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-6 medium-6 small-12 columns">
-						<div class="policy-item">
-							<h6>Policy #:</h6>
-							<h5>{{ policy.number }}</h5>
-						</div>
-					</div>
-					<div class="large-6 medium-6 small-12 columns">
-						<div class="policy-item">
-							<h6>Annual Premium:</h6>
-							<h5>{{ policy.premium }}</h5>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+			<div class="small-12 columns">
+				<div class="header-content">
+					<div class="row">
+						<div class="large-4 small-12 columns border-right">
+							<div class="row">
+								<div class="large-12 medium-6 small-12 columns border-bottom">
+									<header>
+										<h3><i class="entypo-doc-text-inv"></i>{{ policy.type }} Policy</h3>
+										<h6>For: {{ policy.address }}</h6>
+									</header>
+								</div>
 
-	<div class="row">
-		<div class="small-12 columns">
-			<tabset>
-		    <tab heading="Activity">
-		    	<div class="tab-row" ng-repeat="activity in policy.activity">
-						<strong ng-if="activity.type === 'change'">Policy Change:</strong>
-						<strong ng-if="activity.type === 'payment'">Payment Made:</strong>
-						{{ activity.description }}
-		    	</div>
-		    </tab>
-		    <tab heading="Documents">
-		    	<div class="tab-divider" ng-if="policy.upcoming_documents">Upcoming Documents</div>
-		    	<div class="tab-row" ng-repeat="document in policy.upcoming_documents">
-						{{ document.description }}
-		    	</div>
-		    	<div class="tab-divider" ng-if="policy.current_documents">Current Documents</div>
-		    	<div class="tab-row" ng-repeat="document in policy.current_documents">
-						{{ document.description }}
-		    	</div>
-		    	<div class="tab-divider" ng-if="policy.past_documents">Prior Documents</div>
-		    	<div class="tab-row" ng-repeat="document in policy.past_documents">
-						{{ document.description }}
-		    	</div>
-		    </tab>
-		    <tab heading="Agent">
-		    	<div class="agent-info">
-	    			<h4>AGENT INFO</h4>
-	    			<hr>
-	    			<p><strong>Name:</strong> {{ policy.agent.first }} {{ policy.agent.last}}</p>
-	    			<p><strong>Phone:</strong> {{ policy.agent.phone }}</p>
-	    			<p><strong>Address:</strong> {{ policy.agent.address }}</p>
-	    			<p><strong>Email:</strong> {{ policy.agent.email }}</p>
-		    	</div>
-		    </tab>
-		  </tabset>
+								<div class="large-12 medium-6 small-12 columns border-left-small border-bottom-small">
+									<section>
+										<a href="#" class="link">Make Changes To My Policy<i class="entypo-right-open-big"></i></a>
+										<a href="#" class="link">Request Policy Cancelation<i class="entypo-right-open-big"></i></a>
+										<a href="#/claim/{{ policy.number }}" class="link">Report A Loss<i class="entypo-right-open-big"></i></a>
+									</section>
+								</div>
+							</div>
+						</div>
+						<div class="large-8 medium-12 small-12 columns">
+							<div class="row">
+								<div class="small-12 text-center columns notification">
+									<div class="policy-item ">
+										<h5><i class="entypo-lamp"></i><strong>Payment Due</strong></h5>
+										<h6>{{ policy.payment_due}} by {{ policy.payment_due_date }}</h6>
+									</div>
+								</div>
+							</div>
+							<div class="row border-bottom-large">
+								<div class="large-6 medium-6 small-12 columns border-bottom-small">
+									<div class="policy-item">
+										<h6>Name Of Insured:</h6>
+										<h5>{{ policy.insured_name }}</h5>
+									</div>
+								</div>
+								<div class="large-6 medium-6 small-12 columns border-bottom-small">
+									<div class="policy-item">
+										<h6>Policy Term:</h6>
+										<h5>{{ policy.term }}</h5>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="large-6 medium-6 small-12 columns border-bottom-small">
+									<div class="policy-item">
+										<h6>Policy #:</h6>
+										<h5>{{ policy.number }}</h5>
+									</div>
+								</div>
+								<div class="large-6 medium-6 small-12 columns">
+									<div class="policy-item">
+										<h6>Annual Premium:</h6>
+										<h5>{{ policy.premium }}</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
+	</header>
+
+	<article class="policy-details">
+		<div class="row">
+			<div class="small-12 columns">
+				<tabset>
+			    <tab heading="Activity">
+			    	<div class="tab-row" ng-repeat="activity in policy.activity">
+			    		<i class="entypo-bell icon-left"></i>
+							<strong ng-if="activity.type === 'change'">Policy Change:</strong>
+							<strong ng-if="activity.type === 'payment'">Payment Made:</strong>
+							{{ activity.description }}
+			    	</div>
+			    </tab>
+			    <tab heading="Documents">
+			    	<div class="tab-divider" ng-if="policy.upcoming_documents">Upcoming Documents</div>
+			    	<div class="tab-row" ng-repeat="document in policy.upcoming_documents">
+			    		<i class="entypo-upload icon-left"></i>
+							{{ document.description }}
+							<i class="entypo-down-bold icon-right"></i>
+			    	</div>
+			    	<div class="tab-divider" ng-if="policy.current_documents">Current Documents</div>
+			    	<div class="tab-row" ng-repeat="document in policy.current_documents">
+							<i class="entypo-folder icon-left"></i>
+							{{ document.description }}
+							<i class="entypo-down-bold icon-right"></i>
+			    	</div>
+			    	<div class="tab-divider" ng-if="policy.past_documents">Prior Documents</div>
+			    	<div class="tab-row" ng-repeat="document in policy.past_documents">
+							<i class="entypo-archive icon-left"></i>
+							{{ document.description }}
+							<i class="entypo-down-bold icon-right"></i>
+			    	</div>
+			    </tab>
+			    <tab heading="Agent">
+			    	<div class="agent-info">
+				    	<div class="row">
+				    		<div class="small-12 columns">
+				    			<h4>AGENT INFO</h4>
+				    			<hr>
+				    			<p><strong><i class="entypo-vcard"></i>Name:</strong> {{ policy.agent.first }} {{ policy.agent.last}}</p>
+				    			<p><strong><i class="entypo-phone"></i>Phone:</strong> {{ policy.agent.phone }}</p>
+				    			<p><strong><i class="entypo-direction"></i>Address:</strong> {{ policy.agent.address }}</p>
+				    			<p><strong><i class="entypo-mail"></i>Email:</strong> {{ policy.agent.email }}</p>
+				    		</div>
+				    	</div>
+				    </div>
+			    </tab>
+			  </tabset>
+			</div>
+		</div>
+	</article>
 </section>

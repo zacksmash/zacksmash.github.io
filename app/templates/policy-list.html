@@ -1,9 +1,8 @@
 <section class="policy-list">
 	<div class="row">
-		<div class="small-12 columns">
-			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-			  <li class="policy-card" ng-repeat="policy in policies">
-			  	<div class="card-details">
+		<div class="large-4 medium-6 small-12 columns" ng-repeat="policy in policies">
+			<div class="policy-card">
+				<div class="card-details">
 						<header>
 							<h4><i class="entypo-doc-text-inv"></i>{{ policy.type }} Policy</h4>
 						</header>
@@ -27,8 +26,7 @@
 							<a href="#/policy/{{ policy.number }}">View Policy<i class="entypo-right-open-big"></i></a>
 						</footer>
 					</div>
-			  </li>
-			</ul>
+			</div>
 		</div>
 	</div>	
 </section>
