@@ -5,8 +5,9 @@
   "term": "Jul 28, 2014 - Feb 19, 2014",
   "insured_name": "Turner Holt",
   "premium": "$3,117.94",
-  "payment_due": "$1,288.93",
-  "payment_due_date": "Oct 30, 2014",
+  "notification_type": "payment",
+  "notification_title": "Payment Due",
+  "notification_details": "$1,625.40 by Sep 20, 2014",
   "activity": [
     {
       "type": "change",
@@ -21,7 +22,7 @@
       "description": "consequat ex est tempor eu officia ex non adipisicing nostrud"
     },
     {
-      "type": "change",
+      "type": "info",
       "description": "incididunt est ad do veniam in eu reprehenderit consequat ipsum"
     },
     {
@@ -33,7 +34,7 @@
       "description": "commodo laborum nostrud ipsum non qui sit officia cillum non"
     },
     {
-      "type": "change",
+      "type": "info",
       "description": "ad dolore eiusmod cillum culpa sit officia consectetur labore aliquip"
     }
   ],

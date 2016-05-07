@@ -5,8 +5,9 @@
   "term": "Aug 9, 2015 - Sep 27, 2014",
   "insured_name": "Rhonda Dickson",
   "premium": "$2,384.69",
-  "payment_due": "$1,168.63",
-  "payment_due_date": "Dec 5, 2014",
+  "notification_type": "update",
+  "notification_title": "A Different Policy Notification",
+  "notification_details": "nisi ullamco amet cupidatat voluptate pariatur exercitation labore cillum qui",
   "activity": [
     {
       "type": "change",
@@ -21,7 +22,7 @@
       "description": "consequat ex est tempor eu officia ex non adipisicing nostrud"
     },
     {
-      "type": "change",
+      "type": "info",
       "description": "incididunt est ad do veniam in eu reprehenderit consequat ipsum"
     },
     {
@@ -33,7 +34,7 @@
       "description": "commodo laborum nostrud ipsum non qui sit officia cillum non"
     },
     {
-      "type": "change",
+      "type": "info",
       "description": "ad dolore eiusmod cillum culpa sit officia consectetur labore aliquip"
     }
   ],

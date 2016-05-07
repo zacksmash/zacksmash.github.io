@@ -50,9 +50,10 @@
 				<li ng-click="toggleSidebar()" class="show-for-small-only"><a href=""><i class="entypo-user"></i>Hi, {{ auth.data.name }}</a></li>
 				<li ng-click="toggleSidebar()" class="divider show-for-small-only"></li>
 				<li ng-click="toggleSidebar()" ng-class="{ active: isActive('/')}"><a href="#/"><i class="entypo-doc-text"></i>My Policies</a></li>
-				<li ng-click="toggleSidebar()"><a href=""><i class="entypo-plus-squared"></i>New Policy</a></li>
-				<li ng-click="toggleSidebar()"><a href=""><i class="entypo-chat"></i>Support</a></li>
+				<li ng-click="toggleSidebar()" class="hide"><a href=""><i class="entypo-plus-squared"></i>New Policy</a></li>
 				<li ng-click="toggleSidebar()" ng-class="{ active: isActive('/claim')}" class="show-for-small-only"><a href="#/claim"><i class="entypo-flag"></i>Report A Loss</a></li>
+				<li ng-click="toggleSidebar()" ng-class="{ active: isActive('/payment')}"><a href="#/payment"><i class="entypo-credit-card"></i>Pay Bill</a></li>
+				<li ng-click="toggleSidebar()"><a href=""><i class="entypo-chat"></i>Support</a></li>
 				<li ng-click="toggleSidebar()"><a ng-click="logout()"><i class="entypo-logout"></i>Logout</a></li>
 			</ul>
 		</nav>

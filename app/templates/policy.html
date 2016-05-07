@@ -15,8 +15,8 @@
 
 								<div class="large-12 medium-6 small-12 columns border-left-small border-bottom-small">
 									<section>
-										<a href="#" class="link">Make Changes To My Policy<i class="entypo-right-open-big"></i></a>
-										<a href="#" class="link">Request Policy Cancelation<i class="entypo-right-open-big"></i></a>
+										<a class="link" ng-click="policyChangeMsg()">Make Changes To My Policy<i class="entypo-right-open-big"></i></a>
+										<a class="link">Request Policy Cancelation<i class="entypo-right-open-big"></i></a>
 										<a href="#/claim/{{ policy.number }}" class="link">Report A Loss<i class="entypo-right-open-big"></i></a>
 									</section>
 								</div>
@@ -26,8 +26,12 @@
 							<div class="row">
 								<div class="small-12 text-center columns notification">
 									<div class="policy-item ">
-										<h5><i class="entypo-lamp"></i><strong>Payment Due</strong></h5>
-										<h6>{{ policy.payment_due}} by {{ policy.payment_due_date }}</h6>
+										<h5>
+											<i class="entypo-calendar" ng-if="policy.notification_type == 'payment'"></i>
+											<i class="entypo-megaphone" ng-if="policy.notification_type == 'update'"></i>
+											<strong>{{ policy.notification_title}}</strong>
+										</h5>
+										<h6>{{ policy.notification_details }}</h6>
 									</div>
 								</div>
 							</div>
@@ -72,9 +76,12 @@
 				<tabset>
 			    <tab heading="Activity">
 			    	<div class="tab-row" ng-repeat="activity in policy.activity">
-			    		<i class="entypo-bell icon-left"></i>
-							<strong ng-if="activity.type === 'change'">Policy Change:</strong>
-							<strong ng-if="activity.type === 'payment'">Payment Made:</strong>
+			    		<i class="entypo-bell icon-left" ng-if="activity.type === 'change'"></i>
+			    		<i class="entypo-thumbs-up icon-left" ng-if="activity.type === 'payment'"></i>
+			    		<i class="entypo-comment icon-left" ng-if="activity.type === 'info'"></i>
+							<span class="secondary radius label" ng-if="activity.type === 'change'">POLICY CHANGE</span>
+							<span class="secondary radius label"  ng-if="activity.type === 'payment'">PAYMENT MADE</span>
+							<span class="secondary radius label"  ng-if="activity.type === 'info'">NOTICE</span>
 							{{ activity.description }}
 			    	</div>
 			    </tab>

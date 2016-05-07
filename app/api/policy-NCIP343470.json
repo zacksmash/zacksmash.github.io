@@ -5,8 +5,9 @@
   "term": "Mar 18, 2014 - Feb 15, 2015",
   "insured_name": "Luna Mendez",
   "premium": "$3,486.22",
-  "payment_due": "$1,034.63",
-  "payment_due_date": "Mar 18, 2015",
+  "notification_type": "update",
+  "notification_title": "Policy Notification",
+  "notification_details": "veniam ipsum quis nisi qui occaecat aute duis Lorem culpa",
   "activity": [
     {
       "type": "change",
@@ -21,7 +22,7 @@
       "description": "consequat ex est tempor eu officia ex non adipisicing nostrud"
     },
     {
-      "type": "change",
+      "type": "info",
       "description": "incididunt est ad do veniam in eu reprehenderit consequat ipsum"
     },
     {
@@ -33,7 +34,7 @@
       "description": "commodo laborum nostrud ipsum non qui sit officia cillum non"
     },
     {
-      "type": "change",
+      "type": "info",
       "description": "ad dolore eiusmod cillum culpa sit officia consectetur labore aliquip"
     }
   ],
