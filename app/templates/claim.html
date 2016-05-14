@@ -3,78 +3,96 @@
 		<div class="large-6 small-12 large-centered columns">
 			<div class="form-panel">
 				<i class="entypo-flag panel-icon"></i>
-				<h3>Report A Loss: <small>Step <span class="claim-step">{{ claimStep }}</span> of 3</small></h3>
+				<h3>Report A Loss: <small>Step <span class="claim-step">{{ currentStep }}</span> of 3</small></h3>
 				<h5 ng-if="policyNumber" class="text-center">Policy #{{ policyNumber }}</h5>
 				<hr>
 				<form name="claimForm">
-					<div class="step-one" ng-if="claimStep === 1">
+					<div class="step-one" ng-if="currentStep === 1">
 						<label ng-if="!policyNumber">Policy Number:</label>
-						<input type="hidden" value="{{ policyNumber }}" ng-if="policyNumber && auth.user">
+						<input ng-class="{'invalid': !stepOneComplete}" type="hidden" ng-if="policyNumber && auth.user" ng-model="claim.policyNumber" ng-init="claim.policyNumber = policyNumber">
 
-						<select ng-if="!policyNumber && auth.user">
+						<select ng-if="!policyNumber && auth.user" ng-model="claim.policyNumber" ng-class="{'invalid': !stepOneComplete}">
 							<option ng-repeat="policy in policies" value="{{ policy.number }}">#{{ policy.number }} ({{ policy.address }})</option>
 						</select>
 
-						<input type="text" ng-if="!policyNumber && !auth.user">
+						<input type="text" ng-if="!policyNumber && !auth.user" ng-model="claim.policyNumber" ng-class="{'invalid': !stepOneComplete}">
 
 						<label>Date Of Loss:</label>
-						<input type="text" ng-model="claim.dateOfLoss">
-
-						<label>Time Of Loss:</label>
-						<input type="text" ng-model="claim.timeOfLoss">
+						<div class="row collapse">
+							<div class="large-11 small-10 columns">
+								<input type="text" class="postfix" ng-model="claim.date" readonly ng-class="{'invalid': !stepOneComplete}">
+							</div>
+							<div class="large-1 small-2 columns">
+							  <a dropdown-toggle="#datepicker" class="postfix button expand"><i class="entypo-calendar"></i></a>
+							  <div id="datepicker" class="f-dropdown">
+							    <datetimepicker 
+							    	data-ng-model="claim.date" 
+							    	data-datetimepicker-config="{ modelType: 'MMMM Do YYYY, h:mm A' }"
+							    	data-on-set-time="closeDatepicker()"></datetimepicker>
+							  </div>
+							</div>
+						</div>
 
 						<label>Insured Home Phone Number:</label>
-						<input type="text" ng-model="claim.homePhone">
+						<input type="tel" ng-model="claim.homePhone" ng-class="{'invalid': !stepOneComplete}">
 
 						<label>Other Phone Number:</label>
-						<input type="text" ng-model="claim.otherPhone">
+						<input type="tel" ng-model="claim.otherPhone" ng-class="{'invalid': !stepOneComplete}">
 
-						<button class="small button next" ng-click="nextStep(2)">NEXT<i class="entypo-right-open-big"></i></button>
+						<button class="small button next" ng-click="claimStep(2,claim)">NEXT<i class="entypo-right-open-big"></i></button>
 					</div>
 
-					<div class="step-two" ng-if="claimStep === 2">
+					<div class="step-two" ng-if="currentStep === 2">
 						<label>When and where should the insured be contacted:</label>
 						<small>Include additional contact information, such as secondary contact(s) if applicable.</small>
-						<textarea rows="5" ng-model="claim.contactInfo"></textarea>
+						<textarea rows="5" ng-model="claim.contactInfo" ng-class="{'invalid': !stepTwoComplete}"></textarea>
 
 						<label>Estimated dollar value of building damages:</label>
 						<small>(whole dollars only)</small>
-						<input type="text" ng-model="claim.buildingEstimate">
+						<input type="text" ng-model="claim.buildingEstimate" ng-class="{'invalid': !stepTwoComplete}">
 
 						<label>Estimated dollar value of personal property damages:</label>
 						<small>(whole dollars only)</small>
-						<input type="text" ng-model="claim.personalEstimate">
+						<input type="text" ng-model="claim.personalEstimate" ng-class="{'invalid': !stepTwoComplete}">
 
 						<label>What was the cause of loss:</label>
-						<select ng-model="claim.lossCause">
+						<select ng-model="claim.lossCause" ng-class="{'invalid': !stepTwoComplete}">
 							<option value="option_1">Tidal water overflow</option>
 							<option value="option_2">Stream, river or lake overflow</option>
 							<option value="option_3">Accumulation of rainfall or snow melt</option>
 							<option value="option_4">Landslide, land subsidence, sinkhole</option>
 						</select>
 
-						<button class="small button back" ng-click="nextStep(1)"><i class="entypo-left-open-big"></i>BACK</button>
-						<button class="small button next" ng-click="nextStep(3)">NEXT<i class="entypo-right-open-big"></i></button>
+						<a class="small button back" ng-click="claimStep(1, claim)"><i class="entypo-left-open-big"></i>BACK</a>
+						<button class="small button next" ng-click="claimStep(3, claim)">NEXT<i class="entypo-right-open-big"></i></button>
 					</div>
 
-					<div class="step-three" ng-if="claimStep === 3">
+					<div class="step-three" ng-if="currentStep === 3">
 						<label>Describe the damage to insured property:</label>
-						<textarea rows="5" ng-model="claim.lossDamage"></textarea>
+						<textarea rows="5" ng-model="claim.lossDamage" ng-class="{'invalid': !stepThreeComplete}"></textarea>
 
 						<label>Are temporary repairs necessary to prevent further damage?</label>
 						<ul class="inline-list">
-							<li><label for="repairs-yes"><input type="radio" name="repairs" id="repairs-yes" selected ng-model="claim.repairs">Yes</label></li>
-							<li><label for="repairs-no"><input type="radio" name="repairs" id="repairs-no" ng-model="claim.repairs">No</label></li>
+							<li><label for="repairs-yes">
+								<input type="radio" name="repairs" id="repairs-yes" selected ng-model="claim.repairs" ng-class="{'invalid': !stepThreeComplete}">Yes</label>
+							</li>
+							<li><label for="repairs-no">
+								<input type="radio" name="repairs" id="repairs-no" ng-model="claim.repairs" ng-class="{'invalid': !stepThreeComplete}">No</label>
+							</li>
 						</ul>
 
 						<label>Is there other insurance on damaged property?</label>
 						<ul class="inline-list">
-							<li><label for="insurance-yes"><input type="radio" name="insurance" id="insurance-yes" selected ng-model="claim.insurance">Yes</label></li>
-							<li><label for="insurance-no"><input type="radio" name="insurance" id="insurance-no" ng-model="claim.insurance">No</label></li>
+							<li><label for="insurance-yes">
+								<input type="radio" name="insurance" id="insurance-yes" ng-init="selected" ng-model="claim.insurance">Yes</label>
+							</li>
+							<li><label for="insurance-no">
+								<input type="radio" name="insurance" id="insurance-no" ng-init="selected" ng-model="claim.insurance" ng-class="{'invalid': !stepThreeComplete}">No</label>
+							</li>
 						</ul>
 
-						<button class="small button back" ng-click="nextStep(2)"><i class="entypo-left-open-big"></i>BACK</button>
-						<button class="small button next" ng-click="submitClaim()">SUBMIT<i class="entypo-check"></i></button>
+						<a class="small button back" ng-click="claimStep(2, claim)"><i class="entypo-left-open-big"></i>BACK</a>
+						<button class="small button next" ng-click="submitClaim(claim)">SUBMIT<i class="entypo-check"></i></button>
 					</div>
 				</form>
 			</div>
