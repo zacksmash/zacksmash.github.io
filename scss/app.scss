@@ -343,6 +343,8 @@ textarea {
 	color: $base;
 	border: 2px solid $base;
 	border-radius: $global-radius;
+	font-size: 1rem;
+	padding: .625rem 1.75rem;
 	
 	&:hover {
 		background: transparent;
