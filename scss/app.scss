@@ -148,9 +148,22 @@ main {
 						display: block;
 						margin: 0 auto;
 						border-radius: $global-radius;
+						border: 2px solid $gainsboro;
 						-webkit-box-shadow: 0px 4px 0px 0px $gainsboro;
 						-moz-box-shadow: 0px 4px 0px 0px $gainsboro;
 						box-shadow: 0px 4px 0px 0px $gainsboro;
+						
+						&.image-lb {
+							cursor: pointer;
+							transition: .2s;
+							
+							&:hover {
+								border: 2px solid $primary-color;
+								-webkit-box-shadow: 0px 3px 0px 0px $primary-color;
+								-moz-box-shadow: 0px 3px 0px 0px $primary-color;
+								box-shadow: 0px 3px 0px 0px $primary-color;
+							}
+						}
 					}
 				}
 			}
@@ -319,6 +332,11 @@ main {
 			}
 		}
 	}
+}
+
+img.on-display {
+	border: 2px solid $gainsboro;
+	border-radius: $global-radius;
 }
 
 input[type=text],

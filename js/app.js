@@ -27,3 +27,7 @@ $('.flip').click(function(){
   return false;
 });
 */
+
+$('.image-lb').click(function() {
+	$('.on-display').attr('src', $(this).attr('src'))
+})
