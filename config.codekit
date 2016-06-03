@@ -5276,6 +5276,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/allmoxy.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 403021,
+		"inputAbbreviatedPath": "\/img\/allmoxy.jpg",
+		"outputAbbreviatedPath": "\/img\/allmoxy.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/campfluid.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -5283,17 +5294,6 @@
 		"initialSize": 300391,
 		"inputAbbreviatedPath": "\/img\/campfluid.jpg",
 		"outputAbbreviatedPath": "\/img\/campfluid.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/camplins.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 85343,
-		"inputAbbreviatedPath": "\/img\/camplins.jpg",
-		"outputAbbreviatedPath": "\/img\/camplins.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5320,6 +5320,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/insurespan.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 302708,
+		"inputAbbreviatedPath": "\/img\/insurespan.jpg",
+		"outputAbbreviatedPath": "\/img\/insurespan.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/mathco.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -5338,17 +5349,6 @@
 		"initialSize": 135365,
 		"inputAbbreviatedPath": "\/img\/me.jpg",
 		"outputAbbreviatedPath": "\/img\/me.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/me.old.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 774882,
-		"inputAbbreviatedPath": "\/img\/me.old.jpg",
-		"outputAbbreviatedPath": "\/img\/me.old.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5393,17 +5393,6 @@
 		"initialSize": 449510,
 		"inputAbbreviatedPath": "\/img\/sidebar.jpg",
 		"outputAbbreviatedPath": "\/img\/sidebar.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/steton.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 140504,
-		"inputAbbreviatedPath": "\/img\/steton.jpg",
-		"outputAbbreviatedPath": "\/img\/steton.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

@@ -144,14 +144,20 @@ main {
 						}
 					}
 					
+					>div {
+						margin-bottom: .75rem;
+						
+						.label {
+							font-weight: bold;
+							text-transform: uppercase;
+						}
+					}
+					
 					img {
 						display: block;
 						margin: 0 auto;
 						border-radius: $global-radius;
 						border: 2px solid $gainsboro;
-						-webkit-box-shadow: 0px 4px 0px 0px $gainsboro;
-						-moz-box-shadow: 0px 4px 0px 0px $gainsboro;
-						box-shadow: 0px 4px 0px 0px $gainsboro;
 						
 						&.image-lb {
 							cursor: pointer;
@@ -159,9 +165,6 @@ main {
 							
 							&:hover {
 								border: 2px solid $primary-color;
-								-webkit-box-shadow: 0px 3px 0px 0px $primary-color;
-								-moz-box-shadow: 0px 3px 0px 0px $primary-color;
-								box-shadow: 0px 3px 0px 0px $primary-color;
 							}
 						}
 					}
